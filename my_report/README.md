@@ -3,7 +3,7 @@
 ### First and Last Name: Eleni Vavouraki
 ### University Registration Number: dpsd19009
 ### GitHub Personal Profile: https://github.com/Ebabouraki
-### Augmented Reality Personal Repository: https://github.com/Ebabouraki/Augmented-Reality
+### Augmented Reality Personal Repository: https://ebabouraki.github.io/Augmented-Reality/
 
 # Introduction
 
