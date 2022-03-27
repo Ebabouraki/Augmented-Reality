@@ -12,14 +12,12 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.5.0/annyang.min.js"></script>
     <script src="build/aframe-speech-command-component.js"></script>
 
-
     <body style="margin : 0px; overflow: hidden;">
         <a-scene
     vr-mode-ui="enabled: false;"
     renderer="logarithmicDepthBuffer: true;"
     embedded
-    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;"
-  >
+    arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
         <a-marker preset="hiro">
             <a-entity id="box" geometry="primitive: box; width: 0.3; depth: 0.3; height: 0.3" position="0 0 0" material="color: #4CC3D9"></a-entity>
             <a-cylinder id="cylinder" geometry="primitive: cylinder; radius: 0.2; height:0.6" position="0.3 0.3 0.3" material="color: #FFC65D"></a-cylinder>
@@ -31,11 +29,6 @@
               </a-entity>
               <a-entity id="annyang" annyang-speech-recognition></a-entity>
             </a-entity>
-
-
-
-
-
         </a-marker>
         <a-entity camera></a-entity>
         </a-scene>
