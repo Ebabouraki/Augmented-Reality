@@ -29,24 +29,13 @@
 
             <a-marker preset="hiro">
 
-                <a-entity id="box"
-                          geometry="primitive: box; width: 0.5; depth: 0.5; height: 0.5;"
-                          rotation="0 45 0"
-                          position="0 0.30 0"
-                          material="color: #91592F">
-                </a-entity>
+                <a-entity id="box" geometry="primitive: box; width: 0.2; depth: 0.2; height: 0.2;" position="0 0 0" material="color: #4CC3D9"> </a-entity>
 
-                <a-entity id="sphere"
-                          geometry="primitive: sphere; radius:0.3;"
-                          position="0 1 0"
-                          material="color: #6E665D">
-                </a-entity>
+                <a-entity id="sphere" geometry="primitive: sphere; radius:0.3;" position="0.5 0 0" material="color: #EF2D5E"> </a-entity>
 
-                <a-cylinder position="0 0.5 0"
-                            radius="0.2"
-                            height="1.5"
-                            color="#FFAC2D">
-                </a-cylinder>
+                <a-entity id="cylinder" geometry="primitive: cylinder;  height: 4"  radius="0.2" position="-0.5 0 0" material="color: #FFC65D"> </a-entity>
+                           
+                      
 
                 <a-entity id="annyang" annyang-speech-recognition></a-entity>
 
