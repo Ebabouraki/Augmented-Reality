@@ -11,41 +11,41 @@
     <!-- speech command component -->
     <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.5.0/annyang.min.js"></script>
     <script src="build/aframe-speech-command-component.js"></script>
+
+
+
     
- <!-- libraries for recognision pattern -->
-    <script src="https://aframe.io/releases/0.6.0/aframe.min.js"></script>
-<script src="https://jeromeetienne.github.io/AR.js/aframe/build/aframe-ar.js"></script>
-    
 
-   
 
-        <body style="margin : 0px; overflow: hidden;">
-        <a-scene vr-mode-ui="enabled: false;" renderer="logarithmicDepthBuffer: true;" embedded 
-        arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
-            
-<a-assets>
-        <a-asset-item id="pattern-dpsd19009_marker0.1" src="https://github.com/Ebabouraki/Augmented-Reality/blob/main/marker_based/assets/pattern-dpsd19009_marker0.1.png"></a-asset-item>
-    </a-assets>
-  
-  <a-marker type="pattern" preset="custom" url="\assets\pattern-dpsd19009_marker0.1.patt"> 
-      <a-box1  text value='Eleni Vavouraki' position='0 0.5 0' color="yellow"><a-image src="pattern-dpsd19009_marker0.1.png"></a-image></a-box1></a-marker>
+    <body style="margin : 0px; overflow: hidden;">
+        <a-scene
+            vr-mode-ui="enabled: false;"
+            renderer="logarithmicDepthBuffer: true;"
+            embedded
+            arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
 
-            
+
             <a-marker preset="hiro">
 
-                </a-entity>
                 <a-entity id="box" geometry="primitive: box; width: 0.2; depth: 0.2; height: 0.2;" position="0 0 0" material="color: #4CC3D9"> </a-entity>
-                <a-entity id="sphere" geometry="primitive: sphere; width: 0; depth: 0; height:0; radius:0.4;" position="0.7 0 0" material="color: #EF2D5E "> </a-entity>
-                <a-entity id="cylinder" geometry="primitive: cylinder; width: 0; depth: 0; height: 0.5; radius: 0.2" position="-0.3 0 0" material="color: #FFC65D"></a-entity>
-                           
-                <a-entity id="annyang" annyang-speech-recognition></a-entity>
-                
-                 <a-entity particle-system="preset: snow; particleCount: 200000" position="0 2 -10" visible="true"
 
+                <a-entity id="sphere" geometry="primitive: sphere; radius:0.3;" position="0.5 0 0" material="color: #EF2D5E"> </a-entity>
+
+                <a-entity id="cylinder" geometry="primitive: cylinder;  height: 0.4; radius: 0.2" position="-0.5 0 0"
+                material="color: #FFC65D"></a-entity>
+                           
+                      
+
+                <a-entity id="annyang" annyang-speech-recognition></a-entity>
+
+                <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 10000000"
+                          visible="false"
                           speech-command__start="command: start; type: attribute; attribute: visible; value: true;"
                           speech-command__stop="command: stop; type: attribute; attribute: visible; value: false;">
-                 </a-marker>
-           
+                </a-entity>
+
+
+            </a-marker>
         <a-entity camera></a-entity>
         </a-scene>
     </body>
