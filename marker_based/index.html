@@ -1,120 +1,118 @@
 <!DOCTYPE html>
-<html>
-    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
-    <!-- we import arjs version without NFT but with marker + location based support -->
-    <!--<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>-->
-    <script src="build/aframe-ar.js"></script>
-
-    <!-- particles system component -->
-    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
-
-    <!-- speech command component -->
-    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.5.0/annyang.min.js"></script>
-    <script src="build/aframe-speech-command-component.js"></script>
-
-  <!-- Marker Distance component -->
-    <script>
-    AFRAME.registerComponent("marker-distance",
-        {
-            tick: function () {
-                this.markerDistance()
-            },
-            markerDistance: function () {
-                var hydrogenPos, oxygenPos
-                
-                this.box1 = document.querySelector('#box1')
-                this.box2 = document.querySelector('#box2')
-                this.box3 = document.querySelector('#box3')
-                var hydrogen = document.querySelector("#hyd")
-                var oxygen = document.querySelector("#oxy")
-
-                hydrogenPos = new THREE.Vector3();
-                hydrogen.object3D.getWorldPosition(hydrogenPos);
-
-                oxygenPos = new THREE.Vector3();
-                oxygen.object3D.getWorldPosition(oxygenPos);
-
-                //distance
-                this.d = hydrogenPos.distanceTo(oxygenPos);
-                console.log("distance" + this.d)
-            }
-        });
-
-
-    if ( markerDistance < 2 )
-    {
-        this.box1.setAttribute("visible", false)
-        this.box2.setAttribute("visible", false)
-        this.box3.setAttribute("visible", true)
-    } 
-    else 
-    {
-        this.box1.setAttribute("visible", true)
-        this.box2.setAttribute("visible", true)
-        this.box3.setAttribute("visible", false)
-    }
-    </script>
-
-    <body style="margin : 0px; overflow: hidden;">
-        <a-scene
-            vr-mode-ui="enabled: false;"
-            renderer="logarithmicDepthBuffer: true;"
-            embedded
-            arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
-
-      <a-assets>
-            <img id="my-image" src="assets/lacasadepapel.jpg">
-        </a-assets>
-            
-            <a-marker preset="hiro">
-
-                <a-entity id="box" geometry="primitive: box; width: 0.2; depth: 0.2; height: 0.2;" position="0 0 0" material="color: #4CC3D9"> </a-entity>
-
-                <a-entity id="sphere" geometry="primitive: sphere; radius:0.3;" position="0.5 0 0" material="color: #EF2D5E"> </a-entity>
-
-                <a-entity id="cylinder" geometry="primitive: cylinder;  height: 0.4; radius: 0.2" position="-0.5 0 0"
-                material="color: #FFC65D"></a-entity>
-                           
-                      
-
-            
-		
-	                <a-entity id="annyang" annyang-speech-recognition></a-entity>
+	<html>
+	    <script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>
+	    <!-- we import arjs version without NFT but with marker + location based support -->
+	    <!--<script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>-->
+	    <script src="build/aframe-ar.js"></script>
 	
-	                <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 10000000"
-	                          visible="false"
-	                          speech-command__start="command: start; type: attribute; attribute: visible; value: true;"
-	                          speech-command__stop="command: stop; type: attribute; attribute: visible; value: false;">
-	                </a-entity>
+	    <!-- particles system component -->
+	    <script src="https://unpkg.com/aframe-particle-system-component@1.0.x/dist/aframe-particle-system-component.min.js"></script>
+	
+	    <!-- speech command component -->
+	    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.5.0/annyang.min.js"></script>
+	    <script src="build/aframe-speech-command-component.js"></script>
+	
+	  <!-- Marker Distance component -->
+	    <script>
+	    AFRAME.registerComponent("marker-distance",
+	        {
+	            tick: function () {
+	                this.markerDistance()
+	            },
+	            markerDistance: function () {
+	                var hydrogenPos, oxygenPos
+	                
+	                this.box1 = document.querySelector('#box1')
+	                this.box2 = document.querySelector('#box2')
+	                this.box3 = document.querySelector('#box3')
+	                var hydrogen = document.querySelector("#hyd")
+	                var oxygen = document.querySelector("#oxy")
+	
+	                hydrogenPos = new THREE.Vector3();
+	                hydrogen.object3D.getWorldPosition(hydrogenPos);
+	
+	                oxygenPos = new THREE.Vector3();
+	                oxygen.object3D.getWorldPosition(oxygenPos);
+	
+	                //distance
+	                this.d = hydrogenPos.distanceTo(oxygenPos);
+	                console.log("distance" + this.d)
+	            }
+	        });
 	
 	
-	            </a-marker>
-	             <a-marker preset='custom' type='pattern' url='assets/pattern-DPSD19009.patt'>
-	         
-	           <a-image src="#my-image" width="1" height="1" rotation="90 180 0" position="0 0 0"></a-image>
+	    if ( markerDistance < 2 )
+	    {
+	        this.box1.setAttribute("visible", false)
+	        this.box2.setAttribute("visible", false)
+	        this.box3.setAttribute("visible", true)
+	    } 
+	    else 
+	    {
+	        this.box1.setAttribute("visible", true)
+	        this.box2.setAttribute("visible", true)
+	        this.box3.setAttribute("visible", false)
+	    }
+	    </script>
+	
+	    <body style="margin : 0px; overflow: hidden;">
+	        <a-scene
+	            vr-mode-ui="enabled: false;"
+	            renderer="logarithmicDepthBuffer: true;"
+	            embedded
+	            arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
+	
+	      <a-assets>
+	            <img id="my-image" src="assets/lacasadepapel.jpg">
+	        </a-assets>
 	            
-	           <a-text value="Eleni Vavouraki" rotation="-90 0 0" position="0 0.2 0.8" color="black" text="font: monoid; align: center;"></a-text>
-	        </a-marker>
-	           
-          <a-marker id="hydro" type="pattern" url="assets/pattern-card-H.patt">
-          <a-image src="assets/card-H.png" position="0 0 0" rotation="-90 0 0" width="1" height="1"></a-image>
-         <a-entity gltf-model="assets/pattern_hydrogen.glb" position="0 1 0" scale="10 10 10" animation-mixer="clip: *; loop: repeat; timeScale: 1.5;">
-          
-          </a-entity>
-    </a-marker>
-
-    <a-marker id="oxy" type="pattern" url="assets/pattern-card-O.patt">
-          <a-image src="assets/card-O.png" position="0 0 0" rotation="-90 0 0" width="1" height="1"></a-image>
-          <a-entity gltf-model="assets/oxygen.glb" position="0 5 0" scale="10 10 10" animation-mixer="clip: *; loop: repeat; ></a-entity>
-    </a-marker>    
-
-
-
-        <a-entity camera></a-entity>
-        </a-scene>
-    </body>
-</html>
-
-
-
+	            <a-marker preset="hiro">
+	
+	                <a-entity id="box" geometry="primitive: box; width: 0.2; depth: 0.2; height: 0.2;" position="0 0 0" material="color: #4CC3D9"> </a-entity>
+	
+	                <a-entity id="sphere" geometry="primitive: sphere; radius:0.3;" position="0.5 0 0" material="color: #EF2D5E"> </a-entity>
+	
+	                <a-entity id="cylinder" geometry="primitive: cylinder;  height: 0.4; radius: 0.2" position="-0.5 0 0"
+	                material="color: #FFC65D"></a-entity>
+	                           
+	                      
+	
+	            
+			
+		                <a-entity id="annyang" annyang-speech-recognition></a-entity>
+		
+		                <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 10000000"
+		                          visible="false"
+		                          speech-command__start="command: start; type: attribute; attribute: visible; value: true;"
+		                          speech-command__stop="command: stop; type: attribute; attribute: visible; value: false;">
+		                </a-entity>
+		
+		
+		            </a-marker>
+		             <a-marker preset='custom' type='pattern' url='assets/pattern-DPSD19009.patt'>
+		         
+		           <a-image src="#my-image" width="1" height="1" rotation="90 180 0" position="0 0 0"></a-image>
+		            
+		           <a-text value="Eleni Vavouraki" rotation="-90 0 0" position="0 0.2 0.8" color="black" text="font: monoid; align: center;"></a-text>
+		        </a-marker>
+		           
+	          <a-marker id="hydro" type="pattern" url="assets/pattern-card-H.patt">
+	          <a-image src="assets/card-H.png" position="0 0 0" rotation="-90 0 0" width="1" height="1"></a-image>
+	         <a-entity gltf-model="assets/pattern_hydrogen.glb" position="0 1 0" scale="10 10 10" animation-mixer="clip: *; loop: repeat; timeScale: 1.5;">
+	          
+	          </a-entity>
+	    </a-marker>
+	
+	    <a-marker id="oxy" type="pattern" url="assets/pattern-card-O.patt">
+	          <a-image src="assets/card-O.png" position="0 0 0" rotation="-90 0 0" width="1" height="1"></a-image>
+	          <a-entity gltf-model="assets/oxygen.glb" position="0 5 0" scale="10 10 10" animation-mixer="clip: *; loop: repeat; ></a-entity>
+	    </a-marker>    
+	
+	   
+	   
+	
+	        <a-entity camera></a-entity>
+	        </a-scene>
+	    </body>
+	</html>
 
