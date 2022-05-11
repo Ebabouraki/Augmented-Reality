@@ -112,13 +112,11 @@
           <a-entity id= "h" gltf-model="assets/hydrogen.glb" position="0 1 0" scale="1.09 1.09 1.09" animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 360 0 0; loop: true;" animation-mixer="clip: *; loop: repeat; timeScale: 1.5;">
           </a-entity>
 	
-	
-      <a-marker id="oxy" type="pattern" url="assets/pattern-card-O.patt">
-          <a-image id="card1" src="assets/card-O.png" position="0 0 0" rotation="-90 0 0" width="1" height="1"></a-image>
-	  <a-entity id= "o" gltf-model="assets/oxygen.glb" position="0 1 0" scale="1.1 1.1 1.1" animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 360 0 0; loop: true;" animation-mixer="clip: *; loop: repeat;"></a-entity>
-	  <a-image id="card2" src="assets/h2o.png position="0 0 0" rotation="-90 0 0" width="1" height="1"></a-image>									  
-	  <a-entity id="water" gltf-model="assets/water.glb" position="0 1 0" scale="1.1 1.1 1.1" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" visible="false"></a-entity>
+	<a-marker id="oxy" type="pattern" url="assets/pattern-card-O.patt">
+          <a-image src="assets/card-O.png" position="0 0 0" rotation="-90 0 0" width="1" height="1"></a-image>
+          <a-entity gltf-model="assets/oxygen_vi.glb" position="0 1 0" scale="1.1 1.1 1.1" animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 360 0 0; loop: true;" animation-mixer="clip: *; loop: repeat;"></a-entity>
     </a-marker>    
+      
    
 
   
