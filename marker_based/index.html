@@ -13,68 +13,20 @@
 	    <script src="build/aframe-speech-command-component.js"></script>
 	
 	
+	
+	    
+	
+	
 	    <body style="margin : 0px; overflow: hidden;">
-		     <body style="margin : 0px; overflow: hidden;">
-
-      <script>
-
-      AFRAME.registerComponent("marker-distance", {
-        init: function()
-            {
-        this.h = document.querySelector("#h")
-        this.o = document.querySelector("#o")
-        this.water = document.querySelector("#water")
-        this.card1 = document.querySelector("#card1")
-        this.card2 = document.querySelector("#card2")
-        this.markerH = document.querySelector("#hydro")
-        this.markerO = document.querySelector("#oxy")
-      },
-          tick: function () {
-
-              var markerHPos, markerOPos, dist
-              markerHPos = new THREE.Vector3();
-              this.markerH.object3D.getWorldPosition(markerHPos);
-
-              markerOPos = new THREE.Vector3();
-              this.markerO.object3D.getWorldPosition(markerOPos);
-
-              //distance
-              dist = markerHPos.distanceTo(markerOPos);
-
-              if (dist<2){
-                this.water.setAttribute("visible", true)
-                this.h.setAttribute("visible", false)
-                this.o.setAttribute("visible", false)
-                this.card1.setAttribute("visible", false)
-                this.card2.setAttribute("visible", true)
-              }
-              else{
-                this.water.setAttribute("visible", false)
-                this.h.setAttribute("visible", true)
-                this.o.setAttribute("visible", true)
-                this.card1.setAttribute("visible", true)
-                this.card2.setAttribute("visible", false)
-              }
-          }
-
-      });
-
-      </script>
-
 	        <a-scene
 	            vr-mode-ui="enabled: false;"
 	            renderer="logarithmicDepthBuffer: true;"
 	            embedded
 	            arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
-			
-			
-	 
-	      <a-assets>
+	
+	        <a-assets>
 	            <img id="my-image" src="assets/lacasadepapel.jpg">
 	       </a-assets>
-			
-	
-			
 	            
 	            <a-marker preset="hiro">
 	
@@ -85,45 +37,101 @@
 	                <a-entity id="cylinder" geometry="primitive: cylinder;  height: 0.4; radius: 0.2" position="-0.5 0 0"
 	                material="color: #FFC65D"></a-entity>
 	                           
-	   
-			
-		                <a-entity id="annyang" annyang-speech-recognition></a-entity>
-		
-		                <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 10000000"
-		                          visible="false"
-		                          speech-command__start="command: start; type: attribute; attribute: visible; value: true;"
-		                          speech-command__stop="command: stop; type: attribute; attribute: visible; value: false;">
-		                </a-entity>
-		            </a-marker>
-			
-			
-			
-			
-		         <a-marker preset='custom' type='pattern' url='assets/pattern-DPSD19009.patt'>
+	                      
+	
+	                <a-entity id="annyang" annyang-speech-recognition></a-entity>
+	
+	                <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 10000000"
+	                          visible="false"
+	                          speech-command__start="command: start; type: attribute; attribute: visible; value: true;"
+	                          speech-command__stop="command: stop; type: attribute; attribute: visible; value: false;">
+	                </a-entity>
+	
+	
+	            </a-marker>
+	          <a-marker preset='custom' type='pattern' url='assets/pattern-DPSD19009.patt'>
 		         
 		           <a-image src="#my-image" width="1" height="1" rotation="90 180 0" position="0 0 0"></a-image>
 		            
 		           <a-text value="Eleni Vavouraki" rotation="-90 0 0" position="0 0.2 0.8" color="black" text="font: monoid; align: center;"></a-text>
 		        </a-marker>
-			
-      
-	 <a-marker id="hydro" type="pattern" url="assets/pattern-card-H.patt">
+	            
+	            
+	           
+	                <a-marker id="hydro" type="pattern" url="assets/pattern-card-H.patt">
           <a-image src="assets/card-H.png" position="0 0 0" rotation="-90 0 0" width="1" height="1"></a-image>
-          <a-entity id= "h" gltf-model="assets/hydrogen.glb" position="0 1 0" scale="1.09 1.09 1.09" animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 360 0 0; loop: true;" animation-mixer="clip: *; loop: repeat; timeScale: 1.5;">
+          <a-entity gltf-model="assets/hydrogen.glb" position="0 1 0" scale="1.09 1.09 1.09" animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 360 0 0; loop: true;" animation-mixer="clip: *; loop: repeat; timeScale: 1.5;">
           </a-entity>
-	
-	<a-marker id="oxy" type="pattern" url="assets/pattern-card-O.patt">
+    </a-marker>
+
+    <a-marker id="oxy" type="pattern" url="assets/pattern-card-O.patt">
           <a-image src="assets/card-O.png" position="0 0 0" rotation="-90 0 0" width="1" height="1"></a-image>
           <a-entity gltf-model="assets/oxygen.glb" position="0 1 0" scale="1.1 1.1 1.1" animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 360 0 0; loop: true;" animation-mixer="clip: *; loop: repeat;"></a-entity>
     </a-marker>    
-      
-   
-
-  
+		<a-entity gltf-model="assets/water.glb"  id="Water" position="0 1 0" scale="1.1 1.1 1.1"   animation__rotate="property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"></a-entity>	
+			    
 	
 	        <a-entity camera></a-entity>
 	        </a-scene>
-		   
+		     <script>
+
+        AFRAME.registerComponent("marker-distance", {
+
+            tick: function () {
+
+                this.markerDistance()
+            },
+
+            markerDistance: function () {
+
+                var marker1Pos, marker2Pos
+
+                marker1Pos = new THREE.Vector3();
+                marker1.object3D.getWorldPosition(marker1Pos);
+
+                marker2Pos = new THREE.Vector3();
+                marker2.object3D.getWorldPosition(marker2Pos);
+
+                //distance
+                var markerDistance = marker1Pos.distanceTo(marker2Pos);
+
+                var marker1 = document.querySelector("#pattern-card-O")
+                var marker2 = document.querySelector("#pattern-card-H")
+
+
+                var entity1 = document.querySelector('#oxygen')
+                var entity2 = document.querySelector('#hydrogen')
+                var entity3 = document.querySelector('#water')
+
+
+                    if (markerDistance < 2) {
+
+                        entity1.setAttribute('visible', false)
+                        entity2.setAttribute('visible', false)
+                        entity3.setAttribute('visible', true)
+		 
+                    }
+
+
+                else {
+
+                        entity1.setAttribute('visible', true)
+                    entity2.setAttribute('visible', true)
+                    entity3.setAttribute('visible', false)
+
+                    }
+
+            }
+        });
+
+    </script>
+	       
+	            
+	
 	    </body>
 	</html>
+
+
+
+
 
