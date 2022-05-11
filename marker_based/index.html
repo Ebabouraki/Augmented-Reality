@@ -12,7 +12,57 @@
 	    <script src="//cdnjs.cloudflare.com/ajax/libs/annyang/2.5.0/annyang.min.js"></script>
 	    <script src="build/aframe-speech-command-component.js"></script>
 	
-	 
+	  <script>
+
+        AFRAME.registerComponent("marker-distance", {
+
+            tick: function () {
+
+                this.markerDistance()
+            },
+
+            markerDistance: function () {
+
+                var marker1Pos, marker2Pos
+
+                marker1Pos = new THREE.Vector3();
+                marker1.object3D.getWorldPosition(marker1Pos);
+
+                marker2Pos = new THREE.Vector3();
+                marker2.object3D.getWorldPosition(marker2Pos);
+
+                //distance
+                var markerDistance = marker1Pos.distanceTo(marker2Pos);
+
+                var marker1 = document.querySelector("#oxyMarker")
+                var marker2 = document.querySelector("#hydroMarker")
+
+
+                var entity1 = document.querySelector('#oxy')
+                var entity2 = document.querySelector('#hydro')
+                var entity3 = document.querySelector('#Water')
+
+
+                    if (markerDistance < 2) {
+
+                        entity1.setAttribute('visible', false)
+                        entity2.setAttribute('visible', false)
+                        entity3.setAttribute('visible', true)
+                    }
+
+
+                else {
+
+                        entity1.setAttribute('visible', true)
+                    entity2.setAttribute('visible', true)
+                    entity3.setAttribute('visible', false)
+
+                    }
+
+            }
+        });
+
+    </script>
    
 	
 	    <body style="margin : 0px; overflow: hidden;">
