@@ -22,39 +22,8 @@
 	
 	
 	    <body style="margin : 0px; overflow: hidden;">
-		   
-			    <a-scene
-	            vr-mode-ui="enabled: false;"
-	            renderer="logarithmicDepthBuffer: true;"
-	            embedded
-	            arjs="trackingMethod: best; sourceType: webcam;debugUIEnabled: false;">
-				    
-<!--DELIVERABLE 1-->	    
-			 <a-marker preset="hiro">
-	
-	                <a-entity id="box" geometry="primitive: box; width: 0.2; depth: 0.2; height: 0.2;" position="0 0 0" material="color: #4CC3D9"> </a-entity>
-	
-	                <a-entity id="sphere" geometry="primitive: sphere; radius:0.3;" position="0.5 0 0" material="color: #EF2D5E"> </a-entity>
-	
-	                <a-entity id="cylinder" geometry="primitive: cylinder;  height: 0.4; radius: 0.2" position="-0.5 0 0"
-	                material="color: #FFC65D"></a-entity>
-	                           
-	                      
-	
-	                <a-entity id="annyang" annyang-speech-recognition></a-entity>
-	
-	                <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 10000000"
-	                          visible="false"
-	                          speech-command__start="command: start; type: attribute; attribute: visible; value: true;"
-	                          speech-command__stop="command: stop; type: attribute; attribute: visible; value: false;">
-	                </a-entity>
-	
-	
-	            </a-marker>	    
-				    
-	<!-- Deliverable 2 -->
-				    
- <script> 
+		    <script>
+
       AFRAME.registerComponent("marker-distance", {
         init: function()
             {
@@ -110,7 +79,28 @@
 	            <img id="my-image" src="assets/lacasadepapel.jpg">
 	       </a-assets>
 	            
-	    	
+	            <a-marker preset="hiro">
+	
+	                <a-entity id="box" geometry="primitive: box; width: 0.2; depth: 0.2; height: 0.2;" position="0 0 0" material="color: #4CC3D9"> </a-entity>
+	
+	                <a-entity id="sphere" geometry="primitive: sphere; radius:0.3;" position="0.5 0 0" material="color: #EF2D5E"> </a-entity>
+	
+	                <a-entity id="cylinder" geometry="primitive: cylinder;  height: 0.4; radius: 0.2" position="-0.5 0 0"
+	                material="color: #FFC65D"></a-entity>
+	                           
+	                      
+	
+	                <a-entity id="annyang" annyang-speech-recognition></a-entity>
+	
+	                <a-entity position="0 2.25 -15" particle-system="preset: snow; particleCount: 10000000"
+	                          visible="false"
+	                          speech-command__start="command: start; type: attribute; attribute: visible; value: true;"
+	                          speech-command__stop="command: stop; type: attribute; attribute: visible; value: false;">
+	                </a-entity>
+	
+	
+	            </a-marker>
+			
 			
 	          <a-entity marker-distance></a-entity>
 			
@@ -121,22 +111,19 @@
 		           <a-text value="Eleni Vavouraki" rotation="-90 0 0" position="0 0.2 0.8" color="black" text="font: monoid; align: center;"></a-text>
 		        </a-marker>
 	            
-
-
 	            
 	           
 	   <a-marker id="hydromark" type="pattern" url="assets/pattern-card-H.patt">
           <a-image id="card1"  src="assets/card-H.png" position="0 0 0" rotation="-90 0 0" width="1" height="1"></a-image>
           <a-entity id = "h" gltf-model="assets/hydrogen.glb" position="0 1 0" scale="1.09 1.09 1.09" animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 360 0 0; loop: true;" animation-mixer="clip: *; loop: repeat; timeScale: 1.5;"></a-entity>
-         <a-image id="card3" src="assets/h2o.png" position="0 0 0" rotation="-90 0 0" width="1" height="1" visible="false"></a-image>
-         <a-entity id="water" gltf-model="assets/water.glb" position="0 0 0" scale="0.5 0.5 0.5" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" visible="false"></a-entity>
+          
        </a-marker>
 
-			
     <a-marker id="oxymark" type="pattern" url="assets/pattern-card-O.patt">
 	    <a-image id="card2" src="assets/card-O.png" position="0 0 0" rotation="-90 0 0" width="1" height="1"></a-image>
+	    <a-image id="card3" src="assets/h2o.png" position="0 0 0" rotation="-90 0 0" width="1" height="1" visible="false"></a-image>
           <a-entity id = "o" gltf-model="assets/oxygen.glb" position="0 1 0" scale="1.1 1.1 1.1" animation__rotate = "property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 360 0 0; loop: true;" animation-mixer="clip: *; loop: repeat;"></a-entity>
-            
+            <a-entity id="water" gltf-model="assets/water.glb" position="0 0 0" scale="0.5 0.5 0.5" animation="property: rotation; to: 0 360 0; loop: true; dur: 10000" visible="false"></a-entity>
 	
     </a-marker>
 
@@ -146,6 +133,8 @@
         </a-scene>
     </body>
 </html>
+          
+    
 
 			
 
