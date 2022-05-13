@@ -19,7 +19,7 @@
 
 # 2nd Deliverable
 
-# 2nd Deliverable
+
 ## 1ο υποερώτημα 
 - Αρχικά έκανα ένα καινούργιο `a-marker` για τον marker του dpsd μου  από [εδώ](https://www.oodlestechnologies.com/blogs/how-to-create-your-own-marker-for-ar-js/) μετά έφτιαξα το marker στο **Photoshop** ώστε γράφει πάνω το σωστό DPSD και δημιούργησα την εικόνα **.png** και το αρχείο **.patt** από [εδώ](https://jeromeetienne.github.io/AR.js/three.js/examples/marker-training/examples/generator.html) 
   - Μετά πρόσθεσα ένα `a-text` με τον **κώδικα** από [εδώ](https://levelup.gitconnected.com/simple-augmented-reality-ar-integration-with-a-frame-f625e9dc66b8) για να εμφανίζει το όνομα και το επίθετο μου [εδώ](https://aframe.io/docs/1.3.0/components/text.html)
