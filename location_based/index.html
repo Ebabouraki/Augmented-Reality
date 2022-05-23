@@ -38,6 +38,20 @@
                begin="click"></a-animation>
       </a-box>
 	    
+	    <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow
+                event-set__enter="_event: mouseenter; color: #026fc9"
+                event-set__leave="_event: mouseleave; color: #EF2D5E">
+        
+        <!-- This animation begins when the sphere is clicked with the mouse. -->
+        <a-animation attribute="position"
+               dur="1000"
+               fill="forwards"
+               to="0 2.5 -6"
+               direction="alternate"
+               begin="click"></a-animation>
+      </a-sphere>
+	    
+	    
 	    
       <a-entity animation-mixer="loop: repeat" 
 		gltf-model="#animation" 
