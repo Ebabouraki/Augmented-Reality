@@ -23,10 +23,14 @@
         </a-asset-item>
     </a-assets>
     
-
+      <a-entity id="camera" camera="userHeight: 1.6" look-controls cursor="rayOrigin: mouse"></a-entity>
+	    
+	    
       <a-entity animation-mixer="loop: repeat" 
 		gltf-model="#animation" 
 		scale="80 80 80" 
+		event-set__enter="_event: mouseenter; color: #026fc9"
+             event-set__leave="_event: mouseleave; color: #4CC3D9"
 		gps-entity-place="latitude: 44.506477; longitude: 11.301524" position="-0.07676 0.08356 0.04214"
 		visible="">
         </a-entity> 
