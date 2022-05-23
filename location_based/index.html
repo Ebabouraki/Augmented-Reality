@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,20 +17,16 @@
 		embedded
 		arjs='sourceType: webcam; debugUIEnabled: false;'>
 
-    <a-assets>
-        <a-asset-item
-            id="animated-asset"
-            src="assets/PARTHENON.gltf"
-        ></a-asset-item>
-    </a-assets>
-
+ 
         <a-camera
         look-at="[gps-camera]"
         animation-mixer="loop: repeat"
-        gltf-model="#animated-asset"
+        gltf-model="#PARTHENON.gltf"
         scale="0.5 0.5 0.5"
         gps-entity-place="latitude: 37.970833; longitude: 23.726110; minDistance: 1; maxDistance: 700;"
         >
 		</a-camera>
 	</a-scene>
+</body>
+
 </body>
