@@ -27,9 +27,12 @@
 
         <a-camera
             rotation-reader
-            gps-camera="simulateLatitude: 44.504348; simulateLongitude: 11.301027; minDistance: 1; maxDistance: 700;"
-		  <a-entity id="cylinder" geometry="primitive: cylinder;  height: 0.4; radius: 0.2" position="-0.5 0 0"
-	                material="color: #FFC65D"></a-entity>
+            gps-camera="simulateLatitude: 44.504348; simulateLongitude: 11.301027; minDistance: 1; maxDistance: 700;">
+		  <a-entity
+			id="cylinder" geometry="primitive: cylinder; 
+			height: 0.4; radius: 0.2" position="-0.5 0 0"
+	                material="color: #FFC65D">
+		</a-entity>
 	    
 	    <a-entity id="animation" 
 		  gltf-model="assets/parthenon.glb" 
@@ -37,9 +40,8 @@
 		      scale="0.5 0.5 0.5" 
 		      animation="property: rotation; to: 0 360 0; 
 		      loop: true; dur: 10000" visible="false">
-	    </a-entity>
-        >
-		</a-camera>
+	    </a-entity>	
+	    </a-camera>
 	</a-scene>
 </body>
 
