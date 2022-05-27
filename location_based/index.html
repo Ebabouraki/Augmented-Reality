@@ -33,6 +33,33 @@
 		embedded
 		arjs='sourceType: webcam; debugUIEnabled: false;'>
 	    
+	    
+	     <a-entity position ="-6 -2 -6">
+        <a-box position="1 2.5063965 -1" rotation="0 0 0" scale="0.6 5.012793 0.6" color="#F0F0EC" shadow 
+					change-color-on-hover="color: pink" text-show>
+					<a-entity class ="clickable" 
+							position="0 0.7 0" 
+							geometry="primitive: plane; width: 3; height: 0.092" 
+							material="color: #eee" 
+							text="color: blue; align: center; value: Mountain Bike; width: 2;letterSpacing:4"
+							wrap-count="10" visible="false"></a-entity>
+					</a-box>
+      <a-box position="2 3.0252505 -1" rotation="0 0 0" scale="0.6 6.050501 0.6" color="#F0F0EC" shadow 
+					change-color-on-hover="color:#F9F17F" text-show>
+            <a-entity class ="clickable" 
+							position="0 0.7 0" 
+							geometry="primitive: plane; width: 3; height: 0.092" 
+							material="color: #eee" 
+							text="color: blue; align: center; value: Folded Bike; width: 2;letterSpacing:20"
+							wrap-count="10" visible="false"></a-entity>
+					</a-box>
+      <a-box position="3 2.3768465 -1" rotation="0 0 0" scale="0.6 4.753693 0.6" color="#F0F0EC" shadow 
+					change-color-on-hover="color: #CCFDAC">
+					</a-box>
+      <a-box position="4 2.0588145 -1" rotation="0 0 0" scale="0.6 4.117629 0.6" color="#F0F0EC" shadow 
+					change-color-on-hover="color: #D86DF3"></a-box>
+    </a-entity>
+	    
      <a-assets>
         <a-asset-item
             id="animation"
