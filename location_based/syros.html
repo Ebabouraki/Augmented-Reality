@@ -11,26 +11,17 @@
 </head>
 
 <body style='margin: 0; overflow: hidden;'>
-    <a-scene
-        vr-mode-ui="enabled: false"
-		embedded
-        arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+    <a-scene vr-mode-ui="enabled: false"
+             embedded
+             arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
-     
-        <a-entity gps-entity-place="latitude: 37.43722; longitude: 24.93589;" rotation="0 180 0">
-          <a-text value="Asteria" align="center" position="0 -0.85 0" side="double"></a-text>
-          <a-text value="Beach" position="0 -0.65 0" align="center" side="double"></a-text>
-          <a-image src="assets/asteria.jpg" position="0 0 0" side="double" width="1" height="1"></a-image>/>
-        </a-entity>
+<a-image gps-entity-place="latitude: 37.43722; longitude: 24.93589" src="assets/asteria.jpg" position="0 1 -6" height="2" width="2" rotation="-5 0 0"></a-image>
 
-  <a-camera
-            rotation-reader
-            gps-camera="simulateLatitude: 37.43722; simulateLongitude: 24.93589; minDistance: 1; maxDistance: 700;" >
-		</a-camera>
-        <a-camera
+<a-camera id="camera" gps-camera rotation-reader> </a-camera>
 
-	</a-scene>
+
+
+</a-scene>
+
 </body>
-
-
 
