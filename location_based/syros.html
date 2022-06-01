@@ -16,16 +16,34 @@
 		embedded
         arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
-        <a-image gps-entity-place="latitude: 37.43722; longitude: 24.93589;" src="assets/asteria.jpg" height="1.5" width="1.5" </a-image>
         
-         <a-camera
+        
+        <a-image src="assets/asteria.jpg" gps-entity-place="latitude: 37.446392; longitude: 24.944944;" 
+            position="1 2 1" scale="2 2 2">
+        </a-image>
+
+        <a-text
+            position="1 0 1"
+            scale="0.5 0.5 0.5"
+            gps-entity-place="latitude: 37.43722; longitude: 24.93589;"
+            value="Asteria 🏖."
+            align="center">
+        </a-text>
+        
+           <a-camera
             rotation-reader
             gps-camera="simulateLatitude: 37.43722; simulateLongitude: 24.93589; minDistance: 1; maxDistance: 700;" >
 		</a-camera>
-        
-       
+        <a-camera
+      
 	</a-scene>
 </body>
+
+
+
+
+
+
 
 
 
