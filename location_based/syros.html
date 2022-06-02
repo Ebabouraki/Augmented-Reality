@@ -4,59 +4,33 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>GeoAR.js demo</title>
-    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
-    <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>-->
+    <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+   <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>-->
     <script src='build/aframe-ar-nft.js'></script>
-
-    <script>
-
-        AFRAME.registerComponent("text-show", {
-            init: function () {
-                let toggle = false
-                this.el.addEventListener("click", (e) => {
-                    let entity = document.querySelectorAll(".clickable")
-                    entity.forEach(function (el) {
-                        el.setAttribute("visible", toggle)
-                    })
-                    toggle = !toggle
-                })
-            }
-        })
-    </script>
 </head>
 
-
 <body style='margin: 0; overflow: hidden;'>
-    <a-scene
-        vr-mode-ui="enabled: false"
-		embedded
-		arjs='sourceType: webcam; debugUIEnabled: false;'>
+    <a-scene vr-mode-ui="enabled: false"
+             embedded
+             arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
 
-        <a-entity id="cameraRig">
-            <a-entity id="head" camera wasd-controls look-controls cursor="rayOrigin: mouse" position="0 1 0"></a-entity>
-        </a-entity>
-	     
-	    
-
-        <a-assets>
-            <img id="my-image" src="assets/asteria.jpg">
-        </a-assets>
+<a-image gps-entity-place="latitude:37.43722; longitude:24.93589" src="assets/asteria.jpg" position="0 1 -6" height="2" width="2" rotation="-5 0 0"></a-image>
+  <a-camera gps-camera="simulateLatitude: 37.43722; simulateLongitude: 24.93589; minDistance: 1; maxDistance: 700;" 
+        rotation-reader></a-camera>
 
 
+</a-scene>
 
-  
-
-<a-image src="#my-image" width="1" height="1" rotation="90 180 0" position="0 0 0"></a-image>
- <a-text value="Asteria Beach" rotation="-90 0 0" position="0 0.2 0.8" color="black" text="font: monoid; align: center;"></a-text>
- gps-entity-place="latitude: 37.43722; longitude: 24.93589;" text-show>
-             
-         
-    
-    
-        <a-camera
-            rotation-reader
-            >
-		</a-camera>
-	</a-scene>
 </body>
-	
+
+
+
+
+
+
+
+
+
+
+
