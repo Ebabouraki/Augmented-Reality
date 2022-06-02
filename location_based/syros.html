@@ -37,16 +37,16 @@
         </a-entity>
 
         <a-assets>
-            <a-asset-item id="animation" src="assets/parthenon.glb"></a-asset-item>
+            <a-asset-item id="image" src="assets/asteria.jpg"></a-asset-item>
         </a-assets>
 
         <!--Click in the middle-->
 
          <a-entity position="0 0 -120">
 
-        <a-entity gltf-model="#animation" scale="25 25 25" class="click" 
+        <a-entity gltf-model="#image" scale="25 25 25" class="click" 
                animation__rotate="property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"
-                gps-entity-place="latitude: 37.9703; longitude: 23.7225;" text-show>
+                gps-entity-place="latitude: 37.43722; longitude: 24.93589" text-show>
                 
                 <a-entity class="clickable"
                           position="0 1 1"
@@ -56,7 +56,7 @@
             </a-entity>
         </a-entity>
 
-        <!-- Parthenon Athens Greece coordinates -->
+        
     
         <a-camera
             rotation-reader
@@ -64,9 +64,5 @@
 		</a-camera>
 	</a-scene>
 </body>
-
-
-
-
 
 
