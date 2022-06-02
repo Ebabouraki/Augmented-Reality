@@ -4,24 +4,69 @@
     <meta charset='utf-8'>
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>GeoAR.js demo</title>
-    <script src='https://aframe.io/releases/0.9.2/aframe.min.js'></script>
-    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
-   <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>-->
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <!-- <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>-->
     <script src='build/aframe-ar-nft.js'></script>
+
+    <script>
+
+        AFRAME.registerComponent("text-show", {
+            init: function () {
+                let toggle = false
+                this.el.addEventListener("click", (e) => {
+                    let entity = document.querySelectorAll(".clickable")
+                    entity.forEach(function (el) {
+                        el.setAttribute("visible", toggle)
+                    })
+                    toggle = !toggle
+                })
+            }
+        })
+    </script>
 </head>
 
+
 <body style='margin: 0; overflow: hidden;'>
-    <a-scene vr-mode-ui="enabled: false"
-             embedded
-             arjs='sourceType: webcam; sourceWidth:1280; sourceHeight:960; displayWidth: 1280; displayHeight: 960; debugUIEnabled: false;'>
+    <a-scene
+        vr-mode-ui="enabled: false"
+		embedded
+		arjs='sourceType: webcam; debugUIEnabled: false;'>
 
-<a-image gps-entity-place="latitude: 37.43722; longitude: 24.93589" src="assets/asteria.jpg" position="0 1 -6" height="2" width="2" rotation="-5 0 0"></a-image>
+        <a-entity id="cameraRig">
+            <a-entity id="head" camera wasd-controls look-controls cursor="rayOrigin: mouse" position="0 1 0"></a-entity>
+        </a-entity>
 
-<a-camera id="camera" gps-camera rotation-reader> </a-camera>
+        <a-assets>
+            <a-asset-item id="animation" src="assets/parthenon.glb"></a-asset-item>
+        </a-assets>
 
+        <!--Click in the middle-->
 
+         <a-entity position="0 0 -120">
 
-</a-scene>
+        <a-entity gltf-model="#animation" scale="25 25 25" class="click" 
+               animation__rotate="property: rotation; dur: 5000; easing: linear; dir: normal; from:0 0 0; to: 0 360 0; loop: true;"
+                gps-entity-place="latitude: 37.9703; longitude: 23.7225;" text-show>
+                
+                <a-entity class="clickable"
+                          position="0 1 1"
+                          text="color: blue; font-size:4; font-type: bold; align: center; value: Parthenon  Athens Greece ;
+                           width: 5; height: 5;  letterSpacing: 5;" visible="false">
+                        </a-entity>
+            </a-entity>
+        </a-entity>
 
+        <!-- Parthenon Athens Greece coordinates -->
+    
+        <a-camera
+            rotation-reader
+            gps-camera="simulateLatitude: 37.9703; simulateLongitude: 23.7225; minDistance: 1; maxDistance: 700;" >
+		</a-camera>
+	</a-scene>
 </body>
+
+
+
+
+
 
